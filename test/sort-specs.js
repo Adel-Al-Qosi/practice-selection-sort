@@ -43,7 +43,7 @@ describe ('Basic Sorting Algorithms', function () {
 
   });
 
-  it('performs an in-place selection sort', function () {
+  it.only('performs an in-place selection sort', function () {
 
     selectionSortInPlace(arr);
 

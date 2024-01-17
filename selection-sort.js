@@ -9,7 +9,6 @@ function selectionSort(arr) {
   // While the array is not empty...
 
     // Do not move this console.log
-    console.log(sorted.join(","));
 
     // Find the index of the minimum value in the unsorted half
 
@@ -17,6 +16,26 @@ function selectionSort(arr) {
 
     // Add the min value to the end of the sorted array
 
+    const array = [...arr]
+    const sorted = []
+
+    while (array.length !== 0) {
+      console.log(sorted.join(","))
+      let smallest = array[0]
+      let indexOfSmallest = 0
+      for (let i = 1; i < array.length; i++) {
+        if (smallest > array[i]) {
+          smallest = array[i]
+          indexOfSmallest = i
+        }
+      }
+
+      const spliced = array.splice(indexOfSmallest, 1)[0]
+
+      sorted.push(spliced)
+    }
+
+    return sorted
 }
 
 
@@ -28,7 +47,6 @@ function selectionSortInPlace(arr) {
   // Repeat while the unsorted half is not empty:
 
     // Do not move this console.log
-    console.log(arr.join(","));
 
     // Find the index of the minimum value in the unsorted half
 
@@ -40,6 +58,25 @@ function selectionSortInPlace(arr) {
 
     // Increment the divider and repeat
 
+    let pointer = 0
+    while (arr[pointer]) {
+      console.log(arr.join(","));
+      let smallest = arr[pointer]
+      let indexOfSmallest = pointer
+      for (let i = pointer; i < arr.length; i++) {
+        if (smallest > arr[i]) {
+          smallest = arr[i]
+          indexOfSmallest = i
+        }
+      }
+
+      const spliced = arr.splice(indexOfSmallest, 1)[0]
+
+      arr.splice(pointer, 0, spliced)
+      pointer++
+    }
+
+    return arr
 }
 
 
